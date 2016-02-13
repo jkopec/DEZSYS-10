@@ -16,4 +16,5 @@ public interface ServerInt extends Remote{
 	public int getWeight() throws RemoteException;
 	public int getConnections() throws RemoteException;
 	public String getIP() throws RemoteException;
+	public void doSomething() throws RemoteException;
 }

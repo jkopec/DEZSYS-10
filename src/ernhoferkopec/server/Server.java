@@ -91,4 +91,15 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 		return "localhost";
 	}
 	
+	public void doSomething(){
+		this.weight--;
+		System.out.println("Ausführen der Methode auf "+name);
+		try {
+			Thread.sleep((long) (Math.random()*5000));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.weight++;
+	}
+	
 }

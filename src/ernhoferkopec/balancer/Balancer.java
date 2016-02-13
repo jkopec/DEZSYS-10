@@ -9,6 +9,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import ernhoferkopec.server.Server;
+import ernhoferkopec.server.ServerInt;
 
 /**
  * @author andie
@@ -18,6 +19,6 @@ public interface Balancer extends Remote {
 	public String getIP() throws RemoteException;
 	public boolean addServer(String ip, String name) throws RemoteException, MalformedURLException, NotBoundException;
 	public boolean removeServer(String ip, String name) throws RemoteException, MalformedURLException, NotBoundException;
-	public Server chooseServer() throws RemoteException;
-	public boolean forwarding(Server server) throws RemoteException;
+	public ServerInt chooseServer() throws RemoteException;
+	public boolean forwarding(ServerInt server) throws RemoteException;
 }
