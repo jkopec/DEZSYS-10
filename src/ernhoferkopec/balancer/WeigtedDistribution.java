@@ -44,7 +44,8 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	}
 
 	@Override
-	public boolean removeServer(Server server)  throws RemoteException{
+	public boolean removeServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
+		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		this.server.remove(server);
 		return true;
 	}

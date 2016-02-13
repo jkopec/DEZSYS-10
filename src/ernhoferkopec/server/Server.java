@@ -46,8 +46,19 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 	}
 	
 	public boolean unregister(){
-		
-		return false;
+		try {
+			this.balancer.removeServer(this.getIP(), name);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	public int getWeight() {
