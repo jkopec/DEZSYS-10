@@ -11,6 +11,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import ernhoferkopec.server.Server;
+import ernhoferkopec.server.ServerInt;
 
 /**
  * @author andie
@@ -22,11 +23,11 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Server> server;
+	private ArrayList<ServerInt> server;
 	
 	public WeigtedDistribution() throws RemoteException{
 		super();
-		server = new ArrayList<Server>();
+		server = new ArrayList<ServerInt>();
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 
 	@Override
 	public boolean addServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
-		Server server = (Server) Naming.lookup( "//" + ip + name);
+		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		this.server.add(server);
 		return true;
 	}

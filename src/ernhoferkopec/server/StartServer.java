@@ -2,6 +2,9 @@
  * 
  */
 package ernhoferkopec.server;
+
+import java.rmi.registry.LocateRegistry;
+
 /**
  * @author andie
  *

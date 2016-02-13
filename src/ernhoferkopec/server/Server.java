@@ -13,7 +13,7 @@ import java.util.Enumeration;
 
 import ernhoferkopec.balancer.Balancer;
 
-public class Server extends UnicastRemoteObject{
+public class Server extends UnicastRemoteObject implements ServerInt{
 	
 	private int weight;
 	private int connections;
