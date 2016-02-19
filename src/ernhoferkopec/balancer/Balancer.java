@@ -21,4 +21,5 @@ public interface Balancer extends Remote {
 	public boolean removeServer(String ip, String name) throws RemoteException, MalformedURLException, NotBoundException;
 	public ServerInt chooseServer() throws RemoteException;
 	public boolean forwarding(ServerInt server) throws RemoteException;
+	public boolean execute() throws RemoteException;
 }

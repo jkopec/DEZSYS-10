@@ -42,7 +42,8 @@ public class Main {
 			
 			for(int i = 0; i < 100; ++i){
 				System.out.println("Durchgang "+i);
-				balancer.forwarding(balancer.chooseServer());
+				//balancer.forwarding(balancer.chooseServer());
+				balancer.execute();
 			}
 			
         }catch(Exception e){

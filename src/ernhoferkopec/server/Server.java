@@ -17,16 +17,16 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 	
 	private int weight;
 	private int connections;
-	private String balancerIP, name;
+	private String name;
 	private Balancer balancer;
 	private static final long serialVersionUID = 1L;
 	
 	public Server(String balancerIP, int weight, String name) throws MalformedURLException, RemoteException, NotBoundException{
-		this.balancerIP = balancerIP;
+		//this.balancerIP = balancerIP;
 		this.weight = weight;
 		this.name = name;
 		this.balancer = (Balancer) Naming.lookup( "//" +
-                this.balancerIP +
+                balancerIP +
                 "/balancer");
 	}
 	

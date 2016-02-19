@@ -64,12 +64,12 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 		while(true){
 			for(int i = 0; i<this.server.size()-1;++i){
 				if(this.server.get(i).getWeight()>this.server.get(i+1).getWeight()){
-					System.out.println(this.server.get(i).getWeight());
+					//System.out.println(this.server.get(i).getWeight());
 					return this.server.get(i);
 				}
 			}
 			if(this.server.get(this.server.size()-1).getWeight()>1){
-				System.out.println(this.server.get(this.server.size()-1).getWeight());
+				//System.out.println(this.server.get(this.server.size()-1).getWeight());
 				return this.server.get(this.server.size()-1);
 			}
 		}
@@ -89,6 +89,24 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 		};
 		Thread t = new Thread(ra);
 		t.start();
+		return false;
+	}
+
+	@Override
+	public boolean execute() throws RemoteException {
+			ServerInt server = chooseServer();
+			Runnable ra = new Runnable(){
+				@Override
+				public void run() {
+					try {
+						server.doSomething();
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}
+				}
+			};
+			Thread t = new Thread(ra);
+			t.start();
 		return false;
 	}
 }
