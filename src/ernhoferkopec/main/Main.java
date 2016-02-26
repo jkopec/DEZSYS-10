@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import ernhoferkopec.balancer.Balancer;
 import ernhoferkopec.balancer.StartBalancer;
 import ernhoferkopec.balancer.WeigtedDistribution;
+import ernhoferkopec.client.Client;
 import ernhoferkopec.server.Server;
 import ernhoferkopec.server.StartServer;
 
@@ -40,11 +41,16 @@ public class Main {
 			System.out.println("IP2: "+server2.getIP());
 			System.out.println("Register2 "+ server2.register());
 			
+			Client client1 = new Client("Client1","localhost");
+			client1.start();
+			client1.sendPackages(100);
+			
+			/*
 			for(int i = 0; i < 100; ++i){
 				System.out.println("Durchgang "+i);
 				//balancer.forwarding(balancer.chooseServer());
 				balancer.execute();
-			}
+			}*/
 			
         }catch(Exception e){
         	e.printStackTrace();
