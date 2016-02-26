@@ -52,18 +52,16 @@ public class Main {
 				balancer.execute();
 			}*/
 			
-        }catch(Exception e){
-        	e.printStackTrace();
-        }
-		
-		try {
+			
+			//Beenden
 			Thread.sleep(10000);
+			client1.end();
 			System.exit(0);
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("Ende");
 	}
 
 }

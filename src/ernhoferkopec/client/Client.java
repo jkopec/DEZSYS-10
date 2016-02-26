@@ -40,4 +40,8 @@ public class Client extends Thread{
 	public void sendPackages(int amount){
 		this.packages += amount;
 	}
+	
+	public void end(){
+		this.running = false;
+	}
 }
