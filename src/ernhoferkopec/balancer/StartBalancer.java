@@ -22,7 +22,7 @@ public class StartBalancer {
             Balancer balancer = new WeigtedDistribution();
             // Bind this object instance to the name "HelloServer"
             Naming.rebind("balancer", balancer);
-            System.out.print("Balancer started");
+            System.out.println("Balancer started");
         }
         catch (Exception e)
         {

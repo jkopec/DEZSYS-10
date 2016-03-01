@@ -18,9 +18,9 @@ public class StartServer {
 		try
         {
 			Server server = new Server("localhost", 7 , "server1");
-			System.out.println("IP: "+server.getIP());
-			System.out.println("Register"+ server.register());
-			System.out.println("Unregister"+ server.unregister());
+			System.out.println("IP1: "+server.getIP());
+			System.out.println("Register1 "+ server.register());
+			//System.out.println("Unregister"+ server.unregister());
         }
         catch (Exception e)
         {
