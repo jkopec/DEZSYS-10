@@ -28,7 +28,7 @@ public class Main {
 		try
         {
             LocateRegistry.createRegistry(1099);
-            Balancer balancer = new LeastConnection();
+            Balancer balancer = new WeigtedDistribution();
             // Bind this object instance to the name "HelloServer"
             Naming.rebind("balancer", balancer);
             System.out.println("Balancer started");

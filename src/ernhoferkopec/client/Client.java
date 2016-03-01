@@ -10,7 +10,7 @@ import ernhoferkopec.balancer.Balancer;
 public class Client extends Thread{
 
 	private Balancer balancer;
-	private String name;
+	private String name, ip;
 	private boolean running;
 	private int packages;
 
@@ -27,7 +27,7 @@ public class Client extends Thread{
 		while(running){
 			if(packages>0){
 				try {
-					this.balancer.execute();
+					this.balancer.execute(name);
 				} catch (RemoteException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -43,5 +43,13 @@ public class Client extends Thread{
 	
 	public void end(){
 		this.running = false;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 }

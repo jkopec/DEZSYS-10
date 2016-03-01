@@ -11,6 +11,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import ernhoferkopec.server.Server;
 import ernhoferkopec.server.ServerInt;
@@ -26,9 +27,11 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<ServerInt> server;
+	private HashMap<String, ServerInt> verteilung;
 
 	public WeigtedDistribution() throws RemoteException{
 		super();
+		verteilung = new HashMap<String,ServerInt>();
 		server = new ArrayList<ServerInt>();
 	}
 
@@ -89,24 +92,22 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 		};
 		Thread t = new Thread(ra);
 		t.start();
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean execute() throws RemoteException {
-			ServerInt server = chooseServer();
-			Runnable ra = new Runnable(){
-				@Override
-				public void run() {
-					try {
-						server.doSomething();
-					} catch (RemoteException e) {
-						e.printStackTrace();
-					}
-				}
-			};
-			Thread t = new Thread(ra);
-			t.start();
-		return false;
+		ServerInt server = chooseServer();
+		return forwarding(server);
+	}
+
+	@Override
+	public boolean execute(String name) throws RemoteException{
+		if(!verteilung.containsKey(name)){
+			ServerInt s = chooseServer();
+			this.verteilung.put(name, s);
+		}
+		forwarding(this.verteilung.get(name));
+		return true;
 	}
 }

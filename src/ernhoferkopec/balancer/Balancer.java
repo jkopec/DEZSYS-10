@@ -22,4 +22,5 @@ public interface Balancer extends Remote {
 	public ServerInt chooseServer() throws RemoteException;
 	public boolean forwarding(ServerInt server) throws RemoteException;
 	public boolean execute() throws RemoteException;
+	public boolean execute(String ip) throws RemoteException;
 }

@@ -9,6 +9,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import ernhoferkopec.server.ServerInt;
 
@@ -19,10 +20,12 @@ import ernhoferkopec.server.ServerInt;
 public class LeastConnection extends UnicastRemoteObject implements Balancer{
 
 	private static final long serialVersionUID = 1L;
+	private HashMap<String, ServerInt> verteilung;
 	private ArrayList<ServerInt> server;
 
 	public LeastConnection() throws RemoteException {
 		super();
+		verteilung = new HashMap<String,ServerInt>();
 		server = new ArrayList<ServerInt>();
 	}
 
@@ -70,25 +73,23 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 		};
 		Thread t = new Thread(ra);
 		t.start();
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean execute() throws RemoteException {
 		ServerInt server = chooseServer();
-		Runnable ra = new Runnable(){
-			@Override
-			public void run() {
-				try {
-					server.doSomething();
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		Thread t = new Thread(ra);
-		t.start();
-		return false;
+		return forwarding(server);
+	}
+
+	@Override
+	public boolean execute(String name) throws RemoteException{
+		if(!verteilung.containsKey(name)){
+			ServerInt s = chooseServer();
+			this.verteilung.put(name, s);
+		}
+		forwarding(this.verteilung.get(name));
+		return true;
 	}
 
 	@Override
