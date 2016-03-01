@@ -34,12 +34,6 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 	public boolean addServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
 		System.out.println("Server adden name: "+name);
 		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
-		for(int i = 0; i < this.server.size();++i){
-			if(server.getConnections()<=this.server.get(i).getConnections()){
-				this.server.add(i,server);
-				return true;
-			}
-		}
 		this.server.add(server);
 		return true;
 	}
