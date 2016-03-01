@@ -68,7 +68,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 					return this.server.get(i);
 				}
 			}
-			if(this.server.get(this.server.size()-1).getWeight()>1){
+			if(this.server.get(this.server.size()-1).getWeight()>=1){
 				//System.out.println(this.server.get(this.server.size()-1).getWeight());
 				return this.server.get(this.server.size()-1);
 			}

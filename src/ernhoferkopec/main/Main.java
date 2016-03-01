@@ -8,6 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
 
 import ernhoferkopec.balancer.Balancer;
+import ernhoferkopec.balancer.LeastConnection;
 import ernhoferkopec.balancer.StartBalancer;
 import ernhoferkopec.balancer.WeigtedDistribution;
 import ernhoferkopec.client.Client;
@@ -27,7 +28,7 @@ public class Main {
 		try
         {
             LocateRegistry.createRegistry(1099);
-            Balancer balancer = new WeigtedDistribution();
+            Balancer balancer = new LeastConnection();
             // Bind this object instance to the name "HelloServer"
             Naming.rebind("balancer", balancer);
             System.out.println("Balancer started");

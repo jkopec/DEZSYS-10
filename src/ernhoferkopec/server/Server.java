@@ -14,22 +14,22 @@ import java.util.Enumeration;
 import ernhoferkopec.balancer.Balancer;
 
 public class Server extends UnicastRemoteObject implements ServerInt{
-	
-	private int weight;
-	private int connections;
+
+	private int weight, connections;
 	private String name;
 	private Balancer balancer;
 	private static final long serialVersionUID = 1L;
-	
+
 	public Server(String balancerIP, int weight, String name) throws MalformedURLException, RemoteException, NotBoundException{
 		//this.balancerIP = balancerIP;
 		this.weight = weight;
+		this.connections = 0;
 		this.name = name;
 		this.balancer = (Balancer) Naming.lookup( "//" +
-                balancerIP +
-                "/balancer");
+				balancerIP +
+				"/balancer");
 	}
-	
+
 	public boolean register(){
 		try {
 			Naming.rebind(name, this);
@@ -44,7 +44,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 			return false;
 		}
 	}
-	
+
 	public boolean unregister(){
 		try {
 			this.balancer.removeServer(this.getIP(), name);
@@ -68,7 +68,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 	public int getConnections() {
 		return connections;
 	}
-	
+
 	public String getIP(){
 		InetAddress IP;
 		try {
@@ -77,7 +77,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 				NetworkInterface i = e.nextElement();
 				//System.out.println(i.getName()+": "+i.toString());
 			}
-			
+
 			IP = InetAddress.getLocalHost();
 			//return ""+IP.getHostAddress();
 		} catch (UnknownHostException e) {
@@ -90,16 +90,22 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 		}
 		return "localhost";
 	}
-	
+
 	public void doSomething(){
-		this.weight--;
+		synchronized(this){
+			this.connections++;
+			this.weight--;
+		}
 		System.out.println("Ausführen der Methode auf "+name);
 		try {
 			Thread.sleep((long) (Math.random()*5000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		this.weight++;
+		synchronized(this){
+			this.connections--;
+			this.weight++;
+		}
 	}
-	
+
 }
