@@ -17,7 +17,8 @@ public class StartServer {
 	public static void main(String[] args) {
 		try
         {
-			Server server = new Server("localhost", 7 , "server1");
+            System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
+			Server server = new Server("10.0.105.234", 7 , "server1");
 			System.out.println("IP1: "+server.getIP());
 			System.out.println("Register1 "+ server.register());
 			//System.out.println("Unregister"+ server.unregister());

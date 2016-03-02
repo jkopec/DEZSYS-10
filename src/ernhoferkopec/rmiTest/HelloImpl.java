@@ -16,11 +16,11 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
         try
         {
             LocateRegistry.createRegistry(1099);
-            //System.setProperty( "java.rmi.server.hostname", "192.168.1.106" ) ;
+            System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
             HelloImpl obj = new HelloImpl();
             // Bind this object instance to the name "HelloServer"
             Naming.rebind("HelloServer", obj);
-            System.out.print("RMI Server läuft");
+            System.out.print("RMI Server laeuft");
         }
         catch (Exception e)
         {

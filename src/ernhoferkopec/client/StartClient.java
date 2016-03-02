@@ -18,7 +18,8 @@ public class StartClient {
 	 */
 	public static void main(String[] args) {
 		try {
-			Client client1 = new Client("Client1","localhost");
+            System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
+			Client client1 = new Client("Client1","10.0.105.234");
 			client1.start();
 			client1.sendPackages(100);
 		} catch (MalformedURLException e) {

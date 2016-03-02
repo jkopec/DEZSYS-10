@@ -5,6 +5,7 @@ package ernhoferkopec.balancer;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 /**
  * @author andie
@@ -19,9 +20,12 @@ public class StartBalancer {
 		try
         {
             LocateRegistry.createRegistry(1099);
+            System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
             Balancer balancer = new WeigtedDistribution();
             // Bind this object instance to the name "HelloServer"
-            Naming.rebind("balancer", balancer);
+            Registry registry = LocateRegistry.getRegistry();
+            registry.rebind("balancer", balancer);
+            //Naming.rebind("balancer", balancer);
             System.out.println("Balancer started");
         }
         catch (Exception e)

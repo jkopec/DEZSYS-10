@@ -25,7 +25,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 		this.weight = weight;
 		this.connections = 0;
 		this.name = name;
-		this.balancer = (Balancer) Naming.lookup( "//" +
+		this.balancer = (Balancer) Naming.lookup( "rmi://" +
 				balancerIP +
 				"/balancer");
 	}
