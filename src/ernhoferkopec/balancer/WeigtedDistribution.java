@@ -57,6 +57,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 			}
 		}
 		this.server.add(server);
+		System.out.println("Server "+server.getIP()+" hinzugefuegt");
 		return true;
 	}
 

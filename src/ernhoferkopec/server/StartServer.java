@@ -18,7 +18,6 @@ public class StartServer {
 		try
         {
             LocateRegistry.createRegistry(1099);
-            System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
 			Server server = new Server("10.0.105.234", 7 , "server1");
 			server.setIP("10.0.104.130");
 			System.out.println("IP1: "+server.getIP());

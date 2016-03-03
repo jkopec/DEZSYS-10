@@ -20,6 +20,7 @@ import ernhoferkopec.server.ServerInt;
 public class LeastConnection extends UnicastRemoteObject implements Balancer{
 
 	private static final long serialVersionUID = 1L;
+	private String ip;
 	private HashMap<String, ServerInt> verteilung;
 	private ArrayList<ServerInt> server;
 
@@ -92,9 +93,11 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 		return true;
 	}
 
-	@Override
-	public String getIP() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public String getIP() {
+		return this.ip;
+	}
+	
+	public void setIP(String ip){
+		this.ip = ip;
 	}
 }

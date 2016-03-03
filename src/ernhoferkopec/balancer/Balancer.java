@@ -17,7 +17,7 @@ import ernhoferkopec.server.ServerInt;
  */
 public interface Balancer extends Remote {
 	public String getIP() throws RemoteException;
-	public void setIP(String ip);
+	public void setIP(String ip) throws RemoteException;
 	public boolean addServer(String ip, String name) throws RemoteException, MalformedURLException, NotBoundException;
 	public boolean removeServer(String ip, String name) throws RemoteException, MalformedURLException, NotBoundException;
 	public ServerInt chooseServer() throws RemoteException;
