@@ -5,6 +5,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class HelloImpl extends UnicastRemoteObject implements Hello
@@ -15,11 +16,12 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
 		System.out.println("drin");
 		Hello obj;
 		try {
-			obj = (Hello) Naming.lookup( "//" +
-			        "10.0.105.234" +
-			        "/asd");
+			obj = (Hello) Naming.lookup( "//" +"10.0.105.234" +"/hitler");
 	        System.out.println(obj.s());
-		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+		} catch (RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -35,7 +37,7 @@ public class HelloImpl extends UnicastRemoteObject implements Hello
 		try
 		{
 			LocateRegistry.createRegistry(1099);
-			System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
+			System.setProperty( "java.rmi.server.hostname", "10.0.104.130" );
 			HelloImpl obj = new HelloImpl();
 			// Bind this object instance to the name "HelloServer"
 			Naming.rebind("HelloServer", obj);
