@@ -16,7 +16,7 @@ import ernhoferkopec.balancer.Balancer;
 public class Server extends UnicastRemoteObject implements ServerInt{
 
 	private int weight, connections;
-	private String name;
+	private String name, ip;
 	private Balancer balancer;
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +25,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 		this.weight = weight;
 		this.connections = 0;
 		this.name = name;
+		//System.setProperty("java.rmi.server.hostname",balancerIP);
 		this.balancer = (Balancer) Naming.lookup( "rmi://" +
 				balancerIP +
 				"/balancer");
@@ -32,6 +33,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 
 	public boolean register(){
 		try {
+			//System.setProperty("java.rmi.server.hostname",balancerIP);
 			Naming.rebind(name, this);
 			this.balancer.addServer(this.getIP(), name);
 			return true;
@@ -70,6 +72,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 	}
 
 	public String getIP(){
+		/*
 		InetAddress IP;
 		try {
 			Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces();
@@ -87,8 +90,12 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			//return null;
-		}
-		return "localhost";
+		}*/
+		return this.ip;
+	}
+	
+	public void setIP(String ip){
+		this.ip = ip;
 	}
 
 	public void doSomething(){

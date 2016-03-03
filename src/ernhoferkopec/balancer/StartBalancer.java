@@ -22,6 +22,7 @@ public class StartBalancer {
             LocateRegistry.createRegistry(1099);
             System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
             Balancer balancer = new WeigtedDistribution();
+            balancer.setIP("10.0.105.234");
             // Bind this object instance to the name "HelloServer"
             Registry registry = LocateRegistry.getRegistry();
             registry.rebind("balancer", balancer);

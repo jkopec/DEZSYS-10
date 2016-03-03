@@ -26,6 +26,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String ip;
 	private ArrayList<ServerInt> server;
 	private HashMap<String, ServerInt> verteilung;
 
@@ -37,13 +38,17 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 
 	@Override
 	public String getIP() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.ip;
+	}
+	
+	public void setIP(String ip){
+		this.ip = ip;
 	}
 
 	@Override
 	public boolean addServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
 		System.out.println("Server adden name: "+name);
+		//System.setProperty("java.rmi.server.hostname",ip);
 		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		for(int i = 0; i < this.server.size();++i){
 			if(server.getWeight()<=this.server.get(i).getWeight()){
@@ -57,6 +62,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 
 	@Override
 	public boolean removeServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
+		//System.setProperty("java.rmi.server.hostname",ip);
 		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		this.server.remove(server);
 		return true;
