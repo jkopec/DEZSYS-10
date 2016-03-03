@@ -27,6 +27,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	 */
 	private static final long serialVersionUID = 1L;
 	private String ip;
+	private boolean session = true;
 	private ArrayList<ServerInt> server;
 	private HashMap<String, ServerInt> verteilung;
 
@@ -111,12 +112,16 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 
 	@Override
 	public boolean execute(String name) throws RemoteException{
-		if(!verteilung.containsKey(name)){
-			ServerInt s = chooseServer();
-			this.verteilung.put(name, s);
+		if(session){
+			if(!verteilung.containsKey(name)){
+				ServerInt s = chooseServer();
+				this.verteilung.put(name, s);
+			}
+			forwarding(this.verteilung.get(name));
+		}else{
+			forwarding(chooseServer());
 		}
 		System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
-		forwarding(this.verteilung.get(name));
 		return true;
 	}
 }
