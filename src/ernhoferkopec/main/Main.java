@@ -21,8 +21,8 @@ import ernhoferkopec.server.StartServer;
  */
 public class Main {
 
-	private static final String BALANCERIP = "10.0.105.234";
-	private static final String SERVERIP = "10.0.105.234";
+	private static final String BALANCERIP = "localhost";
+	private static final String SERVERIP = "localhost";
 
 	/**
 	 * @param args
@@ -51,17 +51,8 @@ public class Main {
 				clients[i].start();
 				clients[i].sendPackages(10);
 			}
-			
-			/*
-			for(int i = 0; i < 100; ++i){
-				System.out.println("Durchgang "+i);
-				//balancer.forwarding(balancer.chooseServer());
-				balancer.execute();
-			}*/
-			
-			
 			//Beenden
-			Thread.sleep(10000);
+			Thread.sleep(1000);
 			for(Client client:clients){
 				client.end();
 			}

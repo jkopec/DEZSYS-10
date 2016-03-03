@@ -1,0 +1,474 @@
+commit 2ebd15091c9d63183387118cfc1fda2f0d1f768f
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 17:33:31 2016 +0100
+
+    Generated Javadoc
+
+ bin/ernhoferkopec/balancer/LeastConnection.class   | Bin 3548 -> 3622 bytes
+ .../balancer/WeigtedDistribution$1.class           | Bin 1047 -> 1047 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 3740 -> 3814 bytes
+ doc/allclasses-frame.html                          |  31 ++
+ doc/allclasses-noframe.html                        |  31 ++
+ doc/constant-values.html                           | 124 +++++
+ doc/deprecated-list.html                           | 124 +++++
+ doc/ernhoferkopec/balancer/Balancer.html           | 377 ++++++++++++++
+ doc/ernhoferkopec/balancer/LeastConnection.html    | 473 +++++++++++++++++
+ doc/ernhoferkopec/balancer/StartBalancer.html      | 279 ++++++++++
+ .../balancer/WeigtedDistribution.html              | 473 +++++++++++++++++
+ doc/ernhoferkopec/balancer/class-use/Balancer.html | 168 ++++++
+ .../balancer/class-use/LeastConnection.html        | 124 +++++
+ .../balancer/class-use/StartBalancer.html          | 124 +++++
+ .../balancer/class-use/WeigtedDistribution.html    | 124 +++++
+ doc/ernhoferkopec/balancer/package-frame.html      |  26 +
+ doc/ernhoferkopec/balancer/package-summary.html    | 165 ++++++
+ doc/ernhoferkopec/balancer/package-tree.html       | 159 ++++++
+ doc/ernhoferkopec/balancer/package-use.html        | 157 ++++++
+ doc/ernhoferkopec/client/Client.html               | 360 +++++++++++++
+ doc/ernhoferkopec/client/StartClient.html          | 279 ++++++++++
+ doc/ernhoferkopec/client/class-use/Client.html     | 124 +++++
+ .../client/class-use/StartClient.html              | 124 +++++
+ doc/ernhoferkopec/client/package-frame.html        |  21 +
+ doc/ernhoferkopec/client/package-summary.html      | 146 ++++++
+ doc/ernhoferkopec/client/package-tree.html         | 142 +++++
+ doc/ernhoferkopec/client/package-use.html          | 124 +++++
+ doc/ernhoferkopec/main/Main.html                   | 279 ++++++++++
+ doc/ernhoferkopec/main/class-use/Main.html         | 124 +++++
+ doc/ernhoferkopec/main/package-frame.html          |  20 +
+ doc/ernhoferkopec/main/package-summary.html        | 142 +++++
+ doc/ernhoferkopec/main/package-tree.html           | 137 +++++
+ doc/ernhoferkopec/main/package-use.html            | 124 +++++
+ doc/ernhoferkopec/rmiTest/Hello.html               | 253 +++++++++
+ doc/ernhoferkopec/rmiTest/HelloClient.html         | 271 ++++++++++
+ doc/ernhoferkopec/rmiTest/HelloImpl.html           | 355 +++++++++++++
+ doc/ernhoferkopec/rmiTest/class-use/Hello.html     | 164 ++++++
+ .../rmiTest/class-use/HelloClient.html             | 124 +++++
+ doc/ernhoferkopec/rmiTest/class-use/HelloImpl.html | 124 +++++
+ doc/ernhoferkopec/rmiTest/package-frame.html       |  25 +
+ doc/ernhoferkopec/rmiTest/package-summary.html     | 161 ++++++
+ doc/ernhoferkopec/rmiTest/package-tree.html        | 158 ++++++
+ doc/ernhoferkopec/rmiTest/package-use.html         | 157 ++++++
+ doc/ernhoferkopec/server/Server.html               | 450 ++++++++++++++++
+ doc/ernhoferkopec/server/ServerInt.html            | 347 +++++++++++++
+ doc/ernhoferkopec/server/StartServer.html          | 279 ++++++++++
+ doc/ernhoferkopec/server/class-use/Server.html     | 124 +++++
+ doc/ernhoferkopec/server/class-use/ServerInt.html  | 215 ++++++++
+ .../server/class-use/StartServer.html              | 124 +++++
+ doc/ernhoferkopec/server/package-frame.html        |  25 +
+ doc/ernhoferkopec/server/package-summary.html      | 161 ++++++
+ doc/ernhoferkopec/server/package-tree.html         | 158 ++++++
+ doc/ernhoferkopec/server/package-use.html          | 176 +++++++
+ doc/help-doc.html                                  | 229 ++++++++
+ doc/index-files/index-1.html                       | 133 +++++
+ doc/index-files/index-10.html                      | 143 +++++
+ doc/index-files/index-11.html                      | 139 +++++
+ doc/index-files/index-12.html                      | 163 ++++++
+ doc/index-files/index-13.html                      | 131 +++++
+ doc/index-files/index-14.html                      | 131 +++++
+ doc/index-files/index-2.html                       | 129 +++++
+ doc/index-files/index-3.html                       | 137 +++++
+ doc/index-files/index-4.html                       | 131 +++++
+ doc/index-files/index-5.html                       | 151 ++++++
+ doc/index-files/index-6.html                       | 133 +++++
+ doc/index-files/index-7.html                       | 149 ++++++
+ doc/index-files/index-8.html                       | 137 +++++
+ doc/index-files/index-9.html                       | 131 +++++
+ doc/index.html                                     |  74 +++
+ doc/overview-frame.html                            |  25 +
+ doc/overview-summary.html                          | 151 ++++++
+ doc/overview-tree.html                             | 176 +++++++
+ doc/package-list                                   |   5 +
+ doc/script.js                                      |  30 ++
+ doc/serialized-form.html                           | 247 +++++++++
+ doc/stylesheet.css                                 | 574 +++++++++++++++++++++
+ src/ernhoferkopec/balancer/LeastConnection.java    |  15 +-
+ .../balancer/WeigtedDistribution.java              |  13 +-
+ 78 files changed, 12424 insertions(+), 9 deletions(-)
+
+commit ae221aacf74924762d8e25b6e1182157b706e909
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 13:15:10 2016 +0100
+
+    Updated Codesytle
+
+ bin/ernhoferkopec/balancer/StartBalancer.class | Bin 1626 -> 1622 bytes
+ bin/ernhoferkopec/client/Client.class          | Bin 1698 -> 1522 bytes
+ bin/ernhoferkopec/client/StartClient.class     | Bin 1391 -> 1392 bytes
+ bin/ernhoferkopec/main/Main.class              | Bin 2154 -> 2468 bytes
+ bin/ernhoferkopec/server/StartServer.class     | Bin 1588 -> 1620 bytes
+ src/ernhoferkopec/balancer/StartBalancer.java  |   2 +-
+ src/ernhoferkopec/client/Client.java           |  10 +---------
+ src/ernhoferkopec/client/StartClient.java      |   4 ++--
+ src/ernhoferkopec/main/Main.java               |  14 +++++++++-----
+ src/ernhoferkopec/server/StartServer.java      |   1 +
+ 10 files changed, 14 insertions(+), 17 deletions(-)
+
+commit 0d93f4f3fe3c63cafcdbdd9954d0873c8ec55e29
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 12:24:03 2016 +0100
+
+    Client Server amount
+
+ bin/ernhoferkopec/balancer/Balancer.class           | Bin 631 -> 681 bytes
+ bin/ernhoferkopec/balancer/LeastConnection.class    | Bin 3239 -> 3548 bytes
+ bin/ernhoferkopec/balancer/StartBalancer.class      | Bin 1558 -> 1626 bytes
+ .../balancer/WeigtedDistribution$1.class            | Bin 1047 -> 1047 bytes
+ .../balancer/WeigtedDistribution.class              | Bin 3421 -> 3740 bytes
+ bin/ernhoferkopec/client/StartClient.class          | Bin 1191 -> 1391 bytes
+ bin/ernhoferkopec/main/Main.class                   | Bin 2034 -> 2154 bytes
+ bin/ernhoferkopec/server/Server.class               | Bin 3664 -> 3145 bytes
+ bin/ernhoferkopec/server/ServerInt.class            | Bin 410 -> 438 bytes
+ bin/ernhoferkopec/server/StartServer.class          | Bin 1412 -> 1588 bytes
+ src/ernhoferkopec/client/StartClient.java           |  20 ++++++++++----------
+ src/ernhoferkopec/server/StartServer.java           |  13 ++++++-------
+ 12 files changed, 16 insertions(+), 17 deletions(-)
+
+commit 8097eb4e87b89a56922880ce8f5f08a054379c20
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 12:12:20 2016 +0100
+
+    Fully connected
+
+ src/ernhoferkopec/balancer/LeastConnection.java     |  6 ++++--
+ src/ernhoferkopec/balancer/StartBalancer.java       |  8 +++++---
+ src/ernhoferkopec/balancer/WeigtedDistribution.java |  8 +++++---
+ src/ernhoferkopec/client/StartClient.java           |  9 +++++++--
+ src/ernhoferkopec/main/Main.java                    | 12 ++++++++----
+ src/ernhoferkopec/server/Server.java                |  9 +++++++--
+ src/ernhoferkopec/server/ServerInt.java             |  1 +
+ src/ernhoferkopec/server/StartServer.java           | 16 +++++++++++++---
+ 8 files changed, 50 insertions(+), 19 deletions(-)
+
+commit 834d3ccfaa630fe655ea8718c7a5fa7134a0ce52
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 11:43:06 2016 +0100
+
+    Server balancer connection
+
+ src/ernhoferkopec/balancer/Balancer.java            |  2 +-
+ src/ernhoferkopec/balancer/LeastConnection.java     | 11 +++++++----
+ src/ernhoferkopec/balancer/WeigtedDistribution.java |  1 +
+ src/ernhoferkopec/server/StartServer.java           |  1 -
+ 4 files changed, 9 insertions(+), 6 deletions(-)
+
+commit 30a1d966145a2f2bc56642d9065c160657443daa
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 11:29:23 2016 +0100
+
+    RMI balancer server
+
+ src/ernhoferkopec/balancer/Balancer.java            |  1 +
+ src/ernhoferkopec/balancer/StartBalancer.java       |  1 +
+ src/ernhoferkopec/balancer/WeigtedDistribution.java | 10 ++++++++--
+ src/ernhoferkopec/server/Server.java                | 13 ++++++++++---
+ src/ernhoferkopec/server/StartServer.java           |  2 ++
+ 5 files changed, 22 insertions(+), 5 deletions(-)
+
+commit 51c13b141130194aae1b98d3cd9ac1563f865304
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 11:04:27 2016 +0100
+
+    rmi client
+
+ bin/ernhoferkopec/rmiTest/HelloClient.class | Bin 1306 -> 1693 bytes
+ src/ernhoferkopec/rmiTest/HelloClient.java  |  12 ++++++++++--
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+commit 04a07e3ef62a3779c0501e6149ead06fcbdc6277
+Author: jkopec <jkopec@student.tgm.ac.at>
+Date:   Thu Mar 3 11:04:40 2016 +0100
+
+    RMI remote test
+
+ bin/ernhoferkopec/rmiTest/Hello.class     | Bin 231 -> 253 bytes
+ bin/ernhoferkopec/rmiTest/HelloImpl.class | Bin 1947 -> 2020 bytes
+ src/ernhoferkopec/rmiTest/Hello.java      |   1 +
+ src/ernhoferkopec/rmiTest/HelloImpl.java  |  12 +++++++-----
+ 4 files changed, 8 insertions(+), 5 deletions(-)
+
+commit 49ba70157fc1620d3d54db2363dc9e7e415baf06
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Thu Mar 3 10:38:30 2016 +0100
+
+    rmi testing
+
+ bin/ernhoferkopec/rmiTest/HelloImpl.class | Bin 1558 -> 1947 bytes
+ src/ernhoferkopec/rmiTest/HelloImpl.java  |  57 ++++++++++++++++++++----------
+ 2 files changed, 38 insertions(+), 19 deletions(-)
+
+commit 44275534372b32ec1f4d51a21d96809e3621cccf
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Wed Mar 2 12:19:39 2016 +0100
+
+    rmi connection
+
+ bin/ernhoferkopec/balancer/StartBalancer.class | Bin 1284 -> 1558 bytes
+ bin/ernhoferkopec/client/StartClient.class     | Bin 1041 -> 1191 bytes
+ bin/ernhoferkopec/rmiTest/HelloImpl.class      | Bin 1417 -> 1558 bytes
+ bin/ernhoferkopec/server/Server.class          | Bin 3660 -> 3664 bytes
+ bin/ernhoferkopec/server/StartServer.class     | Bin 1284 -> 1412 bytes
+ src/ernhoferkopec/balancer/StartBalancer.java  |   6 +++++-
+ src/ernhoferkopec/client/StartClient.java      |   3 ++-
+ src/ernhoferkopec/rmiTest/HelloImpl.java       |   4 ++--
+ src/ernhoferkopec/server/Server.java           |   2 +-
+ src/ernhoferkopec/server/StartServer.java      |   3 ++-
+ 10 files changed, 12 insertions(+), 6 deletions(-)
+
+commit 0dd679399c7a4a32e921c83d9129c1baf55970e5
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Tue Mar 1 15:41:08 2016 +0100
+
+    single mains
+
+ bin/ernhoferkopec/balancer/StartBalancer.class | Bin 1302 -> 1284 bytes
+ bin/ernhoferkopec/client/StartClient.class     | Bin 418 -> 1041 bytes
+ bin/ernhoferkopec/server/StartServer.class     | Bin 1349 -> 1284 bytes
+ src/ernhoferkopec/balancer/StartBalancer.java  |   2 +-
+ src/ernhoferkopec/client/StartClient.java      |  20 ++++++++++++++++++--
+ src/ernhoferkopec/server/StartServer.java      |   6 +++---
+ 6 files changed, 22 insertions(+), 6 deletions(-)
+
+commit 93ffc18cf286803e843cbdeea5df8179c144260d
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Tue Mar 1 15:24:21 2016 +0100
+
+    Added Session
+
+ bin/ernhoferkopec/balancer/Balancer.class          | Bin 589 -> 631 bytes
+ bin/ernhoferkopec/balancer/LeastConnection.class   | Bin 2832 -> 3239 bytes
+ .../balancer/WeigtedDistribution$1.class           | Bin 1047 -> 1047 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 3014 -> 3421 bytes
+ bin/ernhoferkopec/client/Client.class              | Bin 1500 -> 1698 bytes
+ bin/ernhoferkopec/main/Main.class                  | Bin 2030 -> 2034 bytes
+ src/ernhoferkopec/balancer/Balancer.java           |   1 +
+ src/ernhoferkopec/balancer/LeastConnection.java    |  29 +++++++++----------
+ .../balancer/WeigtedDistribution.java              |  31 +++++++++++----------
+ src/ernhoferkopec/client/Client.java               |  12 ++++++--
+ src/ernhoferkopec/main/Main.java                   |   2 +-
+ 11 files changed, 43 insertions(+), 32 deletions(-)
+
+commit 2ebc26ca3ffdd2451ae04e93a38e9b59277a22a5
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Tue Mar 1 14:24:18 2016 +0100
+
+    Updated Least Connection add Server
+
+ bin/ernhoferkopec/balancer/LeastConnection.class | Bin 2973 -> 2832 bytes
+ src/ernhoferkopec/balancer/LeastConnection.java  |   6 ------
+ 2 files changed, 6 deletions(-)
+
+commit 19e058e0016c528b6ea89ad6e15b549eee792518
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Tue Mar 1 14:22:59 2016 +0100
+
+    Created LeastConnection
+
+ .gitignore                                         |   2 +
+ bin/ernhoferkopec/balancer/LeastConnection.class   | Bin 1490 -> 2973 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 3014 -> 3014 bytes
+ bin/ernhoferkopec/main/Main.class                  | Bin 2034 -> 2030 bytes
+ bin/ernhoferkopec/server/Server.class              | Bin 3488 -> 3660 bytes
+ src/ernhoferkopec/balancer/LeastConnection.java    |  77 +++++++++++++++------
+ .../balancer/WeigtedDistribution.java              |   2 +-
+ src/ernhoferkopec/main/Main.java                   |   3 +-
+ src/ernhoferkopec/server/Server.java               |  34 +++++----
+ 9 files changed, 81 insertions(+), 37 deletions(-)
+
+commit 95b4e1d13c30135342c47432941e6723d12c667c
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Fri Feb 26 12:08:36 2016 +0100
+
+    initial leastConnection
+
+ bin/ernhoferkopec/balancer/LeastConnection.class | Bin 316 -> 1490 bytes
+ bin/ernhoferkopec/client/Client.class            | Bin 1428 -> 1500 bytes
+ bin/ernhoferkopec/main/Main.class                | Bin 2102 -> 2034 bytes
+ src/ernhoferkopec/balancer/LeastConnection.java  |  60 ++++++++++++++++++++++-
+ src/ernhoferkopec/client/Client.java             |   4 ++
+ src/ernhoferkopec/main/Main.java                 |  12 ++---
+ 6 files changed, 68 insertions(+), 8 deletions(-)
+
+commit 47576df9ac454c899f9c7cdbfade5d334781e745
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Fri Feb 26 11:06:56 2016 +0100
+
+    Created Client
+
+ bin/ernhoferkopec/client/Client.class | Bin 1110 -> 1428 bytes
+ bin/ernhoferkopec/main/Main.class     | Bin 2097 -> 2102 bytes
+ src/ernhoferkopec/client/Client.java  |  26 +++++++++++++++++++-------
+ src/ernhoferkopec/main/Main.java      |   8 +++++++-
+ 4 files changed, 26 insertions(+), 8 deletions(-)
+
+commit 750deb8129475fe604a85f09e950696304640818
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Fri Feb 19 11:55:02 2016 +0100
+
+    added execute
+
+ .gitignore                                         |   1 +
+ bin/ernhoferkopec/balancer/Balancer.class          | Bin 555 -> 589 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 2862 -> 3014 bytes
+ bin/ernhoferkopec/client/Client.class              | Bin 285 -> 1110 bytes
+ bin/ernhoferkopec/main/Main.class                  | Bin 2206 -> 2097 bytes
+ bin/ernhoferkopec/server/Server.class              | Bin 3518 -> 3488 bytes
+ src/ernhoferkopec/balancer/Balancer.java           |   1 +
+ .../balancer/WeigtedDistribution.java              |  22 ++++++++++++++--
+ src/ernhoferkopec/client/Client.java               |  28 ++++++++++++++++++++-
+ src/ernhoferkopec/main/Main.java                   |   3 ++-
+ src/ernhoferkopec/server/Server.java               |   6 ++---
+ 11 files changed, 54 insertions(+), 7 deletions(-)
+
+commit c516fa4c9576d097bb8c418f1d67b5ca94eff066
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Sat Feb 13 16:07:36 2016 +0100
+
+    WeigtedDistribution
+
+ bin/ernhoferkopec/balancer/Balancer.class          | Bin 549 -> 555 bytes
+ .../balancer/WeigtedDistribution$1.class           | Bin 0 -> 1047 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 1873 -> 2862 bytes
+ bin/ernhoferkopec/main/Main.class                  | Bin 0 -> 2206 bytes
+ bin/ernhoferkopec/server/Server.class              | Bin 3118 -> 3518 bytes
+ bin/ernhoferkopec/server/ServerInt.class           | Bin 372 -> 410 bytes
+ src/ernhoferkopec/balancer/Balancer.java           |   5 +-
+ .../balancer/WeigtedDistribution.java              |  44 ++++++++++++---
+ src/ernhoferkopec/main/Main.java                   |  62 +++++++++++++++++++++
+ src/ernhoferkopec/server/Server.java               |  11 ++++
+ src/ernhoferkopec/server/ServerInt.java            |   1 +
+ 11 files changed, 114 insertions(+), 9 deletions(-)
+
+commit b0f085494c2ec39759aa17cbace6edc13c1062f6
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Sat Feb 13 14:10:47 2016 +0100
+
+    Server unregister
+
+ bin/ernhoferkopec/balancer/Balancer.class            | Bin 545 -> 549 bytes
+ bin/ernhoferkopec/balancer/WeigtedDistribution.class | Bin 1813 -> 1873 bytes
+ bin/ernhoferkopec/server/Server.class                | Bin 2872 -> 3118 bytes
+ bin/ernhoferkopec/server/StartServer.class           | Bin 1226 -> 1349 bytes
+ src/ernhoferkopec/balancer/Balancer.java             |   2 +-
+ src/ernhoferkopec/balancer/WeigtedDistribution.java  |   3 ++-
+ src/ernhoferkopec/server/Server.java                 |  15 +++++++++++++--
+ src/ernhoferkopec/server/StartServer.java            |   3 ++-
+ 8 files changed, 18 insertions(+), 5 deletions(-)
+
+commit f5f44aee6ad7ec5bb890689231f7f04691deca38
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Sat Feb 13 14:07:36 2016 +0100
+
+    Server register
+
+ bin/ernhoferkopec/balancer/WeigtedDistribution.class | Bin 1760 -> 1813 bytes
+ bin/ernhoferkopec/server/Server.class                | Bin 2834 -> 2872 bytes
+ bin/ernhoferkopec/server/ServerInt.class             | Bin 0 -> 372 bytes
+ bin/ernhoferkopec/server/StartServer.class           | Bin 1226 -> 1226 bytes
+ src/ernhoferkopec/balancer/WeigtedDistribution.java  |   7 ++++---
+ src/ernhoferkopec/server/Server.java                 |   2 +-
+ src/ernhoferkopec/server/ServerInt.java              |  19 +++++++++++++++++++
+ src/ernhoferkopec/server/StartServer.java            |   3 +++
+ 8 files changed, 27 insertions(+), 4 deletions(-)
+
+commit a25dfdb2dfa294ceca10600c24c748610c0be665
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Sat Feb 13 13:10:51 2016 +0100
+
+    initial rmi
+
+ bin/ernhoferkopec/balancer/Balancer.class          | Bin 120 -> 545 bytes
+ bin/ernhoferkopec/balancer/StartBalancer.class     | Bin 428 -> 1302 bytes
+ .../balancer/WeigtedDistribution.class             | Bin 328 -> 1760 bytes
+ bin/ernhoferkopec/client/StartClient.class         | Bin 0 -> 418 bytes
+ bin/ernhoferkopec/rmiTest/Hello.class              | Bin 0 -> 231 bytes
+ bin/ernhoferkopec/rmiTest/HelloClient.class        | Bin 0 -> 1306 bytes
+ bin/ernhoferkopec/rmiTest/HelloImpl.class          | Bin 0 -> 1417 bytes
+ bin/ernhoferkopec/server/Server.class              | Bin 285 -> 2834 bytes
+ bin/ernhoferkopec/server/StartServer.class         | Bin 0 -> 1226 bytes
+ src/ernhoferkopec/balancer/Balancer.java           |  15 +++-
+ src/ernhoferkopec/balancer/StartBalancer.java      |  18 ++++-
+ .../balancer/WeigtedDistribution.java              |  52 +++++++++++++-
+ src/ernhoferkopec/client/StartClient.java          |  20 ++++++
+ src/ernhoferkopec/rmiTest/Hello.java               |   9 +++
+ src/ernhoferkopec/rmiTest/HelloClient.java         |  32 +++++++++
+ src/ernhoferkopec/rmiTest/HelloImpl.java           |  31 ++++++++
+ src/ernhoferkopec/server/Server.java               |  80 ++++++++++++++++++++-
+ src/ernhoferkopec/server/StartServer.java          |  28 ++++++++
+ 18 files changed, 279 insertions(+), 6 deletions(-)
+
+commit f5dc2201059258c89c45a7508066d6c43937ed9f
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Sat Feb 13 10:07:35 2016 +0100
+
+    generated Balancer
+
+ bin/ernhoferkopec/balancer/AlgorithmusA.class       | Bin 307 -> 0 bytes
+ bin/ernhoferkopec/balancer/Balancer.class           | Bin 0 -> 120 bytes
+ bin/ernhoferkopec/balancer/LeastConnection.class    | Bin 0 -> 316 bytes
+ bin/ernhoferkopec/balancer/StartBalancer.class      | Bin 0 -> 428 bytes
+ .../balancer/WeigtedDistribution.class              | Bin 0 -> 328 bytes
+ src/ernhoferkopec/balancer/AlgorithmusA.java        |  12 ------------
+ src/ernhoferkopec/balancer/Balancer.java            |  12 ++++++++++++
+ src/ernhoferkopec/balancer/LeastConnection.java     |  12 ++++++++++++
+ src/ernhoferkopec/balancer/StartBalancer.java       |  20 ++++++++++++++++++++
+ src/ernhoferkopec/balancer/WeigtedDistribution.java |  12 ++++++++++++
+ 10 files changed, 56 insertions(+), 12 deletions(-)
+
+commit fcb4e86fc7477e4a513eb50fd5ec6a92fe2ae688
+Author: jkopec <jkopec@student.tgm.ac.at>
+Date:   Fri Feb 12 23:33:36 2016 +0100
+
+    UML Überlegungen hinzugefügt
+
+ doc/uml/asta/uml_ueberlegungen.asta | Bin 0 -> 26063 bytes
+ doc/uml/png/uml_ueberlegungen.png   | Bin 0 -> 113890 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b942e0dcdea11d86c97b56642e0f3dc90a752a05
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Fri Feb 12 12:18:51 2016 +0100
+
+    Initial Commit
+
+ bin/ernhoferkopec/balancer/AlgorithmusA.class | Bin 0 -> 307 bytes
+ bin/ernhoferkopec/client/Client.class         | Bin 0 -> 285 bytes
+ bin/ernhoferkopec/server/Server.class         | Bin 0 -> 285 bytes
+ src/ernhoferkopec/balancer/AlgorithmusA.java  |  12 ++++++++++++
+ src/ernhoferkopec/client/Client.java          |   5 +++++
+ src/ernhoferkopec/server/Server.java          |   5 +++++
+ 6 files changed, 22 insertions(+)
+
+commit ac9cf5da62f6b096556953cccc0dc5111f754f7f
+Author: jkopec <jkopec@student.tgm.ac.at>
+Date:   Fri Feb 12 12:01:55 2016 +0100
+
+    Updated .gitignore
+
+ .gitignore | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 49fa0a62df6746966cd57913a2ed0989cc67fac9
+Author: Andreas Ernhofer <aernhofer@student.tgm.ac.at>
+Date:   Fri Feb 12 11:35:47 2016 +0100
+
+    Updated .gitignore
+
+ .gitignore | 48 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+commit e8b7aca17cadbdc31cc48a2d305429ab7eed0a19
+Author: Jakub Kopec <jkopec@student.tgm.ac.at>
+Date:   Fri Feb 12 11:22:20 2016 +0100
+
+    Update README.md
+
+ README.md | 40 ++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 38 insertions(+), 2 deletions(-)
+
+commit 022f207b06ce2b6e65c61f33511e54ebf4794787
+Author: Jakub Kopec <jkopec@student.tgm.ac.at>
+Date:   Fri Feb 12 11:14:27 2016 +0100
+
+    Initial commit
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
