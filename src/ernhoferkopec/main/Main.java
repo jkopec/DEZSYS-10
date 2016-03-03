@@ -23,7 +23,6 @@ public class Main {
 
 	private static final String BALANCERIP = "10.0.105.234";
 	private static final String SERVERIP = "10.0.105.234";
-	//private static final String CLIENTIP = "10.0.105.234";
 
 	/**
 	 * @param args
@@ -46,9 +45,12 @@ public class Main {
 			System.out.println("IP2: "+server2.getIP());
 			System.out.println("Register2 "+ server2.register());
 			
-			Client client1 = new Client("Client1",BALANCERIP);
-			client1.start();
-			client1.sendPackages(100);
+			Client[] clients = new Client[9];
+			for(int i = 0; i < clients.length;++i){
+				clients[i] = new Client("Client"+(i+1),BALANCERIP);
+				clients[i].start();
+				clients[i].sendPackages(10);
+			}
 			
 			/*
 			for(int i = 0; i < 100; ++i){
@@ -60,7 +62,9 @@ public class Main {
 			
 			//Beenden
 			Thread.sleep(10000);
-			client1.end();
+			for(Client client:clients){
+				client.end();
+			}
 			System.exit(0);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

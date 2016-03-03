@@ -32,6 +32,7 @@ public class StartServer {
 				servers[i] = new Server(BALANCERIP,SERVERIP, 7 , "server"+(i+1));
 				servers[i].register();
 			}
+			System.out.println("Server erzeugt");
         }
         catch (Exception e)
         {

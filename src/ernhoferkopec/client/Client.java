@@ -10,7 +10,7 @@ import ernhoferkopec.balancer.Balancer;
 public class Client extends Thread{
 
 	private Balancer balancer;
-	private String name, ip;
+	private String name;
 	private boolean running;
 	private int packages;
 
@@ -43,13 +43,5 @@ public class Client extends Thread{
 	
 	public void end(){
 		this.running = false;
-	}
-
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
 	}
 }

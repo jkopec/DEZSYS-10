@@ -17,7 +17,7 @@ import ernhoferkopec.server.Server;
 public class StartClient {
 
 	private static final String BALANCERIP = "10.0.105.234";
-	private static final int ANZAHL = 2;
+	private static final int ANZAHL = 9;
 
 	/**
 	 * @param args
@@ -28,7 +28,7 @@ public class StartClient {
 			for(int i = 0; i < clients.length;++i){
 				clients[i] = new Client("Client"+(i+1),BALANCERIP);
 				clients[i].start();
-				clients[i].sendPackages(100);
+				clients[i].sendPackages(10);
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
