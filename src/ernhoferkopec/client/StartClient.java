@@ -8,33 +8,33 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import ernhoferkopec.server.Server;
+
 /**
  * @author andie
  *
  */
 public class StartClient {
 
-	private static final String BALANCERIP = "10.0.104.130";
+	private static final String BALANCERIP = "10.0.105.234";
+	private static final int ANZAHL = 2;
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		try {
-            //LocateRegistry.createRegistry(1099);
-            //System.setProperty( "java.rmi.server.hostname", "10.0.105.234" );
-			Client client1 = new Client("Client1",BALANCERIP);
-			//client1.setIp(BALANCERIP);
-			client1.start();
-			client1.sendPackages(100);
+			Client[] clients = new Client[ANZAHL];
+			for(int i = 0; i < clients.length;++i){
+				clients[i] = new Client("Client"+(i+1),BALANCERIP);
+				clients[i].start();
+				clients[i].sendPackages(100);
+			}
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
