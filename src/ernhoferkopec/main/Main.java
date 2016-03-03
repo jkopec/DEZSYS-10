@@ -21,6 +21,10 @@ import ernhoferkopec.server.StartServer;
  */
 public class Main {
 
+	private static final String BALANCERIP = "10.0.105.234";
+	private static final String SERVERIP = "10.0.105.234";
+	//private static final String CLIENTIP = "10.0.105.234";
+
 	/**
 	 * @param args
 	 */
@@ -28,21 +32,21 @@ public class Main {
 		try
         {
             LocateRegistry.createRegistry(1099);
-            Balancer balancer = new WeigtedDistribution();
+            Balancer balancer = new WeigtedDistribution(BALANCERIP);
             // Bind this object instance to the name "HelloServer"
             Naming.rebind("balancer", balancer);
             System.out.println("Balancer started");
             
-			Server server = new Server("localhost", 7 , "server1");
+			Server server = new Server(BALANCERIP, SERVERIP, 7 , "server1");
 			System.out.println("IP1: "+server.getIP());
 			System.out.println("Register1 "+ server.register());
 			//System.out.println("Unregister"+ server.unregister());
 			
-			Server server2 = new Server("localhost", 4 , "server2");
+			Server server2 = new Server(BALANCERIP, SERVERIP, 4 , "server2");
 			System.out.println("IP2: "+server2.getIP());
 			System.out.println("Register2 "+ server2.register());
 			
-			Client client1 = new Client("Client1","localhost");
+			Client client1 = new Client("Client1",BALANCERIP);
 			client1.start();
 			client1.sendPackages(100);
 			

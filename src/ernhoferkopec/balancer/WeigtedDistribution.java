@@ -30,10 +30,11 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	private ArrayList<ServerInt> server;
 	private HashMap<String, ServerInt> verteilung;
 
-	public WeigtedDistribution() throws RemoteException{
+	public WeigtedDistribution(String ip) throws RemoteException{
 		super();
 		verteilung = new HashMap<String,ServerInt>();
 		server = new ArrayList<ServerInt>();
+		this.setIP(ip);
 	}
 
 	@Override
@@ -47,7 +48,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 
 	@Override
 	public boolean addServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
-		System.out.println("Server adden name: "+name);
+		//System.out.println("Server adden name: "+name);
 		//System.setProperty("java.rmi.server.hostname",ip);
 		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		for(int i = 0; i < this.server.size();++i){
@@ -57,7 +58,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 			}
 		}
 		this.server.add(server);
-		System.out.println("Server "+server.getIP()+" hinzugefuegt");
+		System.out.println("Server "+name+" von "+server.getIP()+" hinzugefuegt");
 		return true;
 	}
 
@@ -114,6 +115,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 			ServerInt s = chooseServer();
 			this.verteilung.put(name, s);
 		}
+		System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		forwarding(this.verteilung.get(name));
 		return true;
 	}

@@ -24,10 +24,11 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 	private HashMap<String, ServerInt> verteilung;
 	private ArrayList<ServerInt> server;
 
-	public LeastConnection() throws RemoteException {
+	public LeastConnection(String ip) throws RemoteException {
 		super();
 		verteilung = new HashMap<String,ServerInt>();
 		server = new ArrayList<ServerInt>();
+		this.setIP(ip);
 	}
 
 	/**
@@ -36,9 +37,9 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 
 	@Override
 	public boolean addServer(String ip, String name)  throws RemoteException, MalformedURLException, NotBoundException{
-		System.out.println("Server adden name: "+name);
 		ServerInt server = (ServerInt) Naming.lookup( "//" + ip + "/"+ name);
 		this.server.add(server);
+		System.out.println("Server "+name+" von "+server.getIP()+" hinzugefuegt");
 		return true;
 	}
 
@@ -89,6 +90,7 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 			ServerInt s = chooseServer();
 			this.verteilung.put(name, s);
 		}
+		System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		forwarding(this.verteilung.get(name));
 		return true;
 	}

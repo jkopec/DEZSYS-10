@@ -20,11 +20,12 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 	private Balancer balancer;
 	private static final long serialVersionUID = 1L;
 
-	public Server(String balancerIP, int weight, String name) throws MalformedURLException, RemoteException, NotBoundException{
+	public Server(String balancerIP, String serverIP, int weight, String name) throws MalformedURLException, RemoteException, NotBoundException{
 		//this.balancerIP = balancerIP;
 		this.weight = weight;
 		this.connections = 0;
 		this.name = name;
+		this.setIP(serverIP);
 		//System.setProperty("java.rmi.server.hostname",balancerIP);
 		this.balancer = (Balancer) Naming.lookup( "rmi://" +
 				balancerIP +
@@ -103,7 +104,7 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 			this.connections++;
 			this.weight--;
 		}
-		System.out.println("Ausführen der Methode auf "+name);
+		System.out.println("Ausfuehren der Methode auf "+name);
 		try {
 			Thread.sleep((long) (Math.random()*5000));
 		} catch (InterruptedException e) {
@@ -113,6 +114,10 @@ public class Server extends UnicastRemoteObject implements ServerInt{
 			this.connections--;
 			this.weight++;
 		}
+	}
+	
+	public String getName(){
+		return this.name;
 	}
 
 }
