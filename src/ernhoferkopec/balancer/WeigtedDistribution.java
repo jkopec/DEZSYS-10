@@ -27,7 +27,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 	 */
 	private static final long serialVersionUID = 1L;
 	private String ip;
-	private boolean session = true;
+	private boolean session = false;
 	private ArrayList<ServerInt> server;
 	private HashMap<String, ServerInt> verteilung;
 
@@ -55,6 +55,7 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 		for(int i = 0; i < this.server.size();++i){
 			if(server.getWeight()<=this.server.get(i).getWeight()){
 				this.server.add(i,server);
+				System.out.println("Server "+name+" von "+server.getIP()+" hinzugefuegt");
 				return true;
 			}
 		}
@@ -118,10 +119,12 @@ public class WeigtedDistribution extends UnicastRemoteObject implements Balancer
 				this.verteilung.put(name, s);
 			}
 			forwarding(this.verteilung.get(name));
+			System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		}else{
-			forwarding(chooseServer());
+			ServerInt s = chooseServer();
+			forwarding(s);
+			System.out.println("Weiterleiten von "+name+" an "+s.getName() + " auf "+ s.getIP());
 		}
-		System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		return true;
 	}
 }

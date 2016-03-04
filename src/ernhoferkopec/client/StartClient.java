@@ -16,7 +16,7 @@ import ernhoferkopec.server.Server;
  */
 public class StartClient {
 
-	private static final String BALANCERIP = "10.0.105.234";
+	private static final String BALANCERIP = "10.0.106.5";
 	private static final int ANZAHL = 9;
 
 	/**

@@ -13,7 +13,7 @@ public class HelloClient
         // I download server's stubs ==> must set a SecurityManager
         //System.setSecurityManager(new RMISecurityManager());
 
-        System.setProperty("java.rmi.server.hostname","10.0.104.130");
+        System.setProperty("java.rmi.server.hostname","10.0.104.107");
 
         try
         {

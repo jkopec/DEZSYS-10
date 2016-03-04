@@ -13,7 +13,7 @@ import java.rmi.registry.Registry;
  */
 public class StartBalancer {
 
-	private static final String BALANCERIP = "10.0.105.234";
+	private static final String BALANCERIP = "10.0.106.5";
 	
 	/**
 	 * @param args
@@ -23,7 +23,7 @@ public class StartBalancer {
         {
             LocateRegistry.createRegistry(1099);
             System.setProperty( "java.rmi.server.hostname", BALANCERIP );
-            Balancer balancer = new LeastConnection(BALANCERIP);
+            Balancer balancer = new WeigtedDistribution(BALANCERIP);
             //balancer.setIP(BALANCERIP);
             // Bind this object instance to the name "HelloServer"
             Registry registry = LocateRegistry.getRegistry();

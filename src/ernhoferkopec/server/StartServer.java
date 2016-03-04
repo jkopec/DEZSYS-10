@@ -12,9 +12,10 @@ import java.rmi.registry.LocateRegistry;
  */
 public class StartServer {
 
-	private static final String BALANCERIP = "10.0.105.234";
-	private static final String SERVERIP = "10.0.105.234";
-	private static final int ANZAHL = 2;
+	private static final String BALANCERIP = "10.0.106.5";
+	private static final String SERVERIP = "10.0.106.5";
+	private static final int ANZAHL = 1;
+	private static final int[] weight = {7};
 
 	/**
 	 * @param args
@@ -29,7 +30,7 @@ public class StartServer {
         {
 			Server[] servers = new Server[ANZAHL];
 			for(int i = 0; i < servers.length;++i){
-				servers[i] = new Server(BALANCERIP,SERVERIP, 7 , "server"+(i+1));
+				servers[i] = new Server(BALANCERIP,SERVERIP, weight[i] , "server"+(i+6));
 				servers[i].register();
 			}
 			System.out.println("Server erzeugt");

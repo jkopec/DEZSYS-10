@@ -93,10 +93,12 @@ public class LeastConnection extends UnicastRemoteObject implements Balancer{
 				this.verteilung.put(name, s);
 			}
 			forwarding(this.verteilung.get(name));
+			System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		}else{
-			forwarding(chooseServer());
+			ServerInt s = chooseServer();
+			forwarding(s);
+			System.out.println("Weiterleiten von "+name+" an "+s.getName() + " auf "+ s.getIP());
 		}
-		System.out.println("Weiterleiten von "+name+" an "+this.verteilung.get(name).getName() + " auf "+ this.verteilung.get(name).getIP());
 		return true;
 	}
 
